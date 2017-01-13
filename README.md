@@ -72,5 +72,20 @@ compile 'me.zhouzhuo.zzweatherview:zz-weather-view:1.0.0'
                 Toast.makeText(MainActivity.this, position+"", Toast.LENGTH_SHORT).show();
             }
         });
+       
+        
 ```
 
+```java
+    //数据源
+  WeatherModel model = new WeatherModel();
+        model.setDate("12/07");//日期
+        model.setWeek("昨天");  //星期
+        model.setDayWeather("大雪"); //白天天气
+        model.setDayTemp(11); //白天温度
+        model.setNightTemp(5); //夜晚温度
+        model.setNightWeather("晴"); //夜晚天气
+        model.setWindOrientation("西南风"); //风向
+        model.setWindLevel("3级"); //
+        model.setAirLevel(AirLevel.EXCELLENT); //空气质量
+```

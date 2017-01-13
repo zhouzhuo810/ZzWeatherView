@@ -14,6 +14,7 @@ compile 'me.zhouzhuo.zzweatherview:zz-weather-view:1.0.0'
 效果图如下：
 
 <img src="https://github.com/zhouzhuo810/ZzWeatherView/blob/master/zz-weather-view-demo.jpg"  width="400px"/>
+<img src="https://github.com/zhouzhuo810/ZzWeatherView/blob/master/zz-weather-view-demo_disc.jpg"  width="400px"/>
 
 ## 用法简介
 

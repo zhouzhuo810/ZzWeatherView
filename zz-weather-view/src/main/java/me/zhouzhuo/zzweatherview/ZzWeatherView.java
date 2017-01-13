@@ -20,7 +20,7 @@ import java.util.List;
  * ZzWeatherView
  *
  * @author Zz
- * @time 2016/12/8 9:29
+ * 2016/12/8 9:29
  */
 public class ZzWeatherView extends HorizontalScrollView {
 

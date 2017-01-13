@@ -10,7 +10,7 @@ import android.view.View;
  * TemperatureView
  *
  * @author Zz
- * @time 2016/12/8 10:25
+ * 2016/12/8 10:25
  */
 public class TemperatureView extends View {
 

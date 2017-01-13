@@ -14,7 +14,7 @@ import android.widget.TextView;
  * WeatherItemView
  *
  * @author Zz
- * @time 2016/12/8 10:32
+ * 2016/12/8 10:32
  */
 public class WeatherItemView extends LinearLayout {
 

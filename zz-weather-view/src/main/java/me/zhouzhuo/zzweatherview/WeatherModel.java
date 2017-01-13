@@ -3,7 +3,7 @@ package me.zhouzhuo.zzweatherview;
 /**
  * Model of weather
  * @author Zz
- * @time 2016/12/8 9:42
+ * 2016/12/8 9:42
  */
 public class WeatherModel {
 

@@ -7,7 +7,7 @@
 ## Gradle
 
 ```
-compile 'me.zhouzhuo.zzweatherview:zz-weather-view:1.0.0'
+compile 'me.zhouzhuo.zzweatherview:zz-weather-view:1.0.1'
 ```
 
 

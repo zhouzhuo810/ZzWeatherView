@@ -27,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
         weatherView.setList(generateData());
 
         //画折线
-        weatherView.setLineType(ZzWeatherView.LINE_TYPE_DISCOUNT);
+//        weatherView.setLineType(ZzWeatherView.LINE_TYPE_DISCOUNT);
         //画曲线(不够圆滑希望有更好的建议联系我(Email:admin@zhouzhuo810.me))
-        //weatherView.setLineType(ZzWeatherView.LINE_TYPE_CURVE);
+        weatherView.setLineType(ZzWeatherView.LINE_TYPE_CURVE);
 
         //设置线宽
         weatherView.setLineWidth(6f);

@@ -7,7 +7,7 @@
 ## Gradle
 
 ```
-compile 'me.zhouzhuo.zzweatherview:zz-weather-view:1.0.1'
+compile 'me.zhouzhuo.zzweatherview:zz-weather-view:1.0.2'
 ```
 
 
@@ -65,6 +65,18 @@ compile 'me.zhouzhuo.zzweatherview:zz-weather-view:1.0.1'
         //设置线宽
         weatherView.setLineWidth(6f);
 
+
+        //设置一屏幕显示几列(最少3列)
+        try {
+            weatherView.setColumnNumber(5);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //设置白天和晚上线条的颜色
+        weatherView.setDayAndNightLineColor(Color.BLUE, Color.RED);
+
+
         //点击某一列
         weatherView.setOnWeatherItemClickListener(new ZzWeatherView.OnWeatherItemClickListener() {
             @Override
@@ -89,3 +101,13 @@ compile 'me.zhouzhuo.zzweatherview:zz-weather-view:1.0.1'
         model.setWindLevel("3级"); //
         model.setAirLevel(AirLevel.EXCELLENT); //空气质量
 ```
+
+
+### 更新日志
+
+v 1.0.2
+- 添加设置曲线颜色方法；
+- 添加设置列的数量方法；
+
+v 1.0.1
+- 修复曲线不圆滑问题；

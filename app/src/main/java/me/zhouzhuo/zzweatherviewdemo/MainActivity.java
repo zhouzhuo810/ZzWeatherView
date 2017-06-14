@@ -1,5 +1,6 @@
 package me.zhouzhuo.zzweatherviewdemo;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ViewGroup;
@@ -27,12 +28,22 @@ public class MainActivity extends AppCompatActivity {
         weatherView.setList(generateData());
 
         //画折线
-//        weatherView.setLineType(ZzWeatherView.LINE_TYPE_DISCOUNT);
-        //画曲线(不够圆滑希望有更好的建议联系我(Email:admin@zhouzhuo810.me))
+        //weatherView.setLineType(ZzWeatherView.LINE_TYPE_DISCOUNT);
+        //画曲线(已修复不圆滑问题)
         weatherView.setLineType(ZzWeatherView.LINE_TYPE_CURVE);
 
         //设置线宽
         weatherView.setLineWidth(6f);
+
+        //设置一屏幕显示几列(最少3列)
+        try {
+            weatherView.setColumnNumber(5);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //设置白天和晚上线条的颜色
+        weatherView.setDayAndNightLineColor(Color.BLUE, Color.RED);
 
         //点击某一列
         weatherView.setOnWeatherItemClickListener(new ZzWeatherView.OnWeatherItemClickListener() {

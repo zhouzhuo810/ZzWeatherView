@@ -37,6 +37,11 @@ public class ZzWeatherView extends HorizontalScrollView {
     private int lineType = LINE_TYPE_CURVE;
     private float lineWidth = 6f;
 
+    private int dayLineColor = 0xff78ad23;
+    private int nightLineColor = 0xff23acb3;
+
+    private int columnNumber = 6;
+
     private OnWeatherItemClickListener weatherItemClickListener;
 
     public ZzWeatherView(Context context) {
@@ -54,13 +59,13 @@ public class ZzWeatherView extends HorizontalScrollView {
 
     private void init(Context context, AttributeSet attrs) {
         dayPaint = new Paint();
-        dayPaint.setColor(0xff78ad23);
+        dayPaint.setColor(dayLineColor);
         dayPaint.setAntiAlias(true);
         dayPaint.setStrokeWidth(lineWidth);
         dayPaint.setStyle(Paint.Style.STROKE);
 
         nightPaint = new Paint();
-        nightPaint.setColor(0xff23acb3);
+        nightPaint.setColor(nightLineColor);
         nightPaint.setAntiAlias(true);
         nightPaint.setStrokeWidth(lineWidth);
         nightPaint.setStyle(Paint.Style.STROKE);
@@ -408,6 +413,26 @@ public class ZzWeatherView extends HorizontalScrollView {
         invalidate();
     }
 
+    public void setDayLineColor(int color) {
+        this.dayLineColor = color;
+        dayPaint.setColor(dayLineColor);
+        invalidate();
+    }
+
+    public void setNightLineColor(int color) {
+        this.nightLineColor = color;
+        nightPaint.setColor(nightLineColor);
+        invalidate();
+    }
+
+    public void setDayAndNightLineColor(int dayColor, int nightColor) {
+        this.dayLineColor = dayColor;
+        this.nightLineColor = nightColor;
+        dayPaint.setColor(dayLineColor);
+        nightPaint.setColor(nightLineColor);
+        invalidate();
+    }
+
     public List<WeatherModel> getList() {
         return list;
     }
@@ -457,7 +482,7 @@ public class ZzWeatherView extends HorizontalScrollView {
             itemView.setWindOri(model.getWindOrientation());
             itemView.setWindLevel(model.getWindLevel());
             itemView.setAirLevel(model.getAirLevel());
-            itemView.setLayoutParams(new LinearLayout.LayoutParams(screenWidth / 6, ViewGroup.LayoutParams.WRAP_CONTENT));
+            itemView.setLayoutParams(new LinearLayout.LayoutParams(screenWidth / columnNumber, ViewGroup.LayoutParams.WRAP_CONTENT));
             itemView.setClickable(true);
             final int finalI = i;
             itemView.setOnClickListener(new OnClickListener() {
@@ -472,6 +497,15 @@ public class ZzWeatherView extends HorizontalScrollView {
         }
         addView(llRoot);
         invalidate();
+    }
+
+    public void setColumnNumber(int num) throws Exception {
+        if (num > 2) {
+            this.columnNumber = num;
+            setList(this.list);
+        } else {
+            throw new Exception("ColumnNumber should lager than 2");
+        }
     }
 
     private int getScreenWidth() {

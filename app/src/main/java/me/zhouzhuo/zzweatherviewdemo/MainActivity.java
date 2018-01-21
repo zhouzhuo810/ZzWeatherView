@@ -4,6 +4,9 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ViewGroup;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -22,15 +25,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ViewUtil.scaleContentView((ViewGroup) findViewById(R.id.activity_main));
 
-        ZzWeatherView weatherView = (ZzWeatherView) findViewById(R.id.weather_view);
+        RadioGroup rgType = (RadioGroup) findViewById(R.id.rg_type);
+        rgType.check(R.id.rb_disc);
+
+        final ZzWeatherView weatherView = (ZzWeatherView) findViewById(R.id.weather_view);
 
         //填充天气数据
         weatherView.setList(generateData());
 
         //画折线
-        //weatherView.setLineType(ZzWeatherView.LINE_TYPE_DISCOUNT);
+        weatherView.setLineType(ZzWeatherView.LINE_TYPE_DISCOUNT);
         //画曲线(已修复不圆滑问题)
-        weatherView.setLineType(ZzWeatherView.LINE_TYPE_CURVE);
+//        weatherView.setLineType(ZzWeatherView.LINE_TYPE_CURVE);
 
         //设置线宽
         weatherView.setLineWidth(6f);
@@ -50,6 +56,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(WeatherItemView itemView, int position, WeatherModel weatherModel) {
                 Toast.makeText(MainActivity.this, position+"", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        rgType.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.rb_disc:
+                        weatherView.setLineType(ZzWeatherView.LINE_TYPE_DISCOUNT);
+                        break;
+                    case R.id.rb_curve:
+                        weatherView.setLineType(ZzWeatherView.LINE_TYPE_CURVE);
+                        break;
+                }
             }
         });
 

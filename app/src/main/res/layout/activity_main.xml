@@ -1,20 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     tools:context="me.zhouzhuo.zzweatherviewdemo.MainActivity">
+
+    <RadioGroup
+        android:id="@+id/rg_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_disc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="折线图"
+            android:textSize="40px" />
+
+        <RadioButton
+            android:id="@+id/rb_curve"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="曲线图"
+            android:textSize="40px" />
+    </RadioGroup>
 
     <me.zhouzhuo.zzweatherview.ZzWeatherView
         android:id="@+id/weather_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbarThumbHorizontal="@drawable/scroll_bar_thumb"
-        android:scrollbarTrackHorizontal="@drawable/scroll_bar_thumb"
-        android:scrollbarSize="4dp"
         android:background="#333"
-        >
-    </me.zhouzhuo.zzweatherview.ZzWeatherView>
-</RelativeLayout>
+        android:scrollbarSize="4dp"
+        android:scrollbarThumbHorizontal="@drawable/scroll_bar_thumb"
+        android:scrollbarTrackHorizontal="@drawable/scroll_bar_thumb" />
+</LinearLayout>

@@ -13,8 +13,7 @@ compile 'me.zhouzhuo.zzweatherview:zz-weather-view:1.0.2'
 
 效果图如下：
 
-<img src="https://github.com/zhouzhuo810/ZzWeatherView/blob/master/zz-weather-view-demo.jpg"  width="400px"/>
-<img src="https://github.com/zhouzhuo810/ZzWeatherView/blob/master/zz-weather-view-demo_disc.jpg"  width="400px"/>
+<img src="https://github.com/zhouzhuo810/ZzWeatherView/blob/master/art/zzweatherview_curve.gif"  width="400px"/>
 
 ## 用法简介
 
@@ -59,7 +58,7 @@ compile 'me.zhouzhuo.zzweatherview:zz-weather-view:1.0.2'
 
         //画折线
         weatherView.setLineType(ZzWeatherView.LINE_TYPE_DISCOUNT);
-        //画曲线(不够圆滑希望有更好的建议联系我(Email:admin@zhouzhuo810.me))
+        //画曲线
         //weatherView.setLineType(ZzWeatherView.LINE_TYPE_CURVE);
 
         //设置线宽

@@ -5,7 +5,6 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -78,7 +77,6 @@ public class ZzWeatherView extends HorizontalScrollView {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (getChildCount() > 0) {
-            Log.e("xxx", ">0");
             ViewGroup root = (ViewGroup) getChildAt(0);
 
             if (root.getChildCount() > 0) {
@@ -370,9 +368,6 @@ public class ZzWeatherView extends HorizontalScrollView {
                         int nightX1 = child1.getTempX() + child1.getWidth() * (i + 1);
                         int nightY1 = child1.getTempY();
 
-                        Log.e("xxxxx", "i=" + i + ", day x=" + dayX + ", day y=" + dayY + ", night x=" + nightX + ", night y=" + nightY);
-                        Log.e("xxxxx", "i=" + i + ", day x1=" + dayX1 + ", day y1=" + dayY1 + ", night x1=" + nightX1 + ", night y1=" + nightY1);
-
                         TemperatureView tempV = (TemperatureView) child.findViewById(R.id.ttv_day);
                         TemperatureView tempV1 = (TemperatureView) child1.findViewById(R.id.ttv_day);
 
@@ -388,7 +383,6 @@ public class ZzWeatherView extends HorizontalScrollView {
                         int y11 = (int) (dayY1 + tempV1.getyPointDay());
                         int x22 = (int) (nightX1 + tempV1.getxPointNight());
                         int y22 = (int) (nightY1 + tempV1.getyPointNight());
-                        Log.e("xxx", "x1=" + x1 + ",y1=" + y1 + ",x11=" + x11 + ",y11=" + y11);
 
                         canvas.drawLine(x1, y1, x11, y11, dayPaint);
                         canvas.drawLine(x2, y2, x22, y22, nightPaint);

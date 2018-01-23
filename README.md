@@ -97,8 +97,10 @@ compile 'me.zhouzhuo.zzweatherview:zz-weather-view:1.0.2'
         model.setNightTemp(5); //夜晚温度
         model.setNightWeather("晴"); //夜晚天气
         model.setWindOrientation("西南风"); //风向
-        model.setWindLevel("3级"); //
+        model.setWindLevel("3级"); //风级
         model.setAirLevel(AirLevel.EXCELLENT); //空气质量
+        model.setDayPic(R.drawable.xxx); //白天天气图标(默认提供常用天气图标)
+        model.setNightPic(R.drawable.xxx); //晚上天气图标(默认提供常用天气图标)
 ```
 
 

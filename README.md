@@ -1,7 +1,7 @@
 # ZzWeatherView
 
 
-一个现实天气的控件
+一个显示天气的控件
 
 
 ## Gradle

@@ -7,7 +7,16 @@
 ## Gradle
 
 ```
-compile 'me.zhouzhuo.zzweatherview:zz-weather-view:1.0.2'
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+
+	dependencies {
+	        implementation 'com.github.zhouzhuo810:ZzWeatherView:1.0.3'
+	}
 ```
 
 

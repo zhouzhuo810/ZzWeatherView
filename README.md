@@ -106,6 +106,9 @@ compile 'me.zhouzhuo.zzweatherview:zz-weather-view:1.0.2'
 
 ### 更新日志
 
+v 1.0.3
+- 整理代码，添加注释；
+
 v 1.0.2
 - 添加设置曲线颜色方法；
 - 添加设置列的数量方法；

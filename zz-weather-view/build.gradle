@@ -1,18 +1,12 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
-
-version = "1.0.2"
 
 android {
-    resourcePrefix "zz_" //随意填写
-
-    compileSdkVersion 24
-    buildToolsVersion "24.0.2"
+    compileSdkVersion 29
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 24
+        targetSdkVersion 26
         versionCode 3
         versionName "1.2"
     }
@@ -34,95 +28,4 @@ dependencies {
 }
 
 
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-/*
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-    options.encoding = "UTF-8"
-}
 
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}*/
-
-artifacts {
-//    archives javadocJar
-    archives sourcesJar
-}
-
-group = "me.zhouzhuo.zzweatherview"            // Maven Group ID for the artifact，一般填你唯一的包名
-install {
-    repositories.mavenInstaller {
-        pom.project {
-            packaging 'aar'
-            groupId 'me.zhouzhuo.zzweatherview' //自己定义的组名
-            artifactId 'zz-weather-view'
-
-            name 'zz-weather-view'
-            description 'A powerful view to show the weather infomation.'
-            url 'https://github.com/zhouzhuo810/ZzWeatherView'
-            inceptionYear '2016'
-
-            licenses {
-                license {
-                    name 'The Apache Software License, Version 2.0'
-                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    distribution 'repo'
-                }
-            }
-            scm {
-                connection 'https://github.com/zhouzhuo810/ZzWeatherView.git'
-                url 'https://github.com/zhouzhuo810/ZzWeatherView'
-
-            }
-            developers {
-                developer {
-                    name 'zhouzhuo'
-                    email 'admin@zhouzhuo.me'
-                }
-            }
-        }
-    }
-}
-
-// Bintray
-
-//获取local.propertes的信息
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
-bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
-    publish = true
-    configurations = ['archives']
-    pkg {
-        //填入 bintray 上对应的 package 信息
-        repo = 'maven'
-        name = 'zz-weather-view'
-        vcsUrl = 'https://github.com/zhouzhuo810/ZzWeatherView.git'
-        websiteUrl = 'https://github.com/zhouzhuo810/ZzWeatherView'
-        licenses = ['Apache-2.0']
-        issueTrackerUrl = 'https://github.com/zhouzhuo810/ZzWeatherView/issues'
-        publicDownloadNumbers = true
-        version {
-            name = '1.0.2'
-            desc = 'zz-weather-view release'
-            vcsTag = '1.0.2'
-            attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
-        }
-    }
-}
-
-tasks.withType(JavaCompile) {
-    options.encoding = "UTF-8"
-}
-
-task findConventions << {
-    println project.getConvention()
-}

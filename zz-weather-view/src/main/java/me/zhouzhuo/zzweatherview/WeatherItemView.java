@@ -60,45 +60,53 @@ public class WeatherItemView extends LinearLayout {
     }
 
     public void setWeek(String week) {
-        if (tvWeek != null)
+        if (tvWeek != null) {
             tvWeek.setText(week);
+        }
     }
 
     public void setDate(String date) {
-        if (tvDate != null)
+        if (tvDate != null) {
             tvDate.setText(date);
+        }
     }
 
     public int getTempX() {
-        if (ttvTemp != null)
+        if (ttvTemp != null) {
             return (int) ttvTemp.getX();
+        }
         return 0;
     }
 
     public int getTempY() {
-        if (ttvTemp != null)
+        if (ttvTemp != null) {
             return (int) ttvTemp.getY();
+        }
         return 0;
     }
 
     public void setDayWeather(String dayWeather) {
-        if (tvDayWeather != null)
+        if (tvDayWeather != null) {
             tvDayWeather.setText(dayWeather);
+        }
     }
 
     public void setNightWeather(String nightWeather) {
-        if (tvNightWeather != null)
+        if (tvNightWeather != null) {
             tvNightWeather.setText(nightWeather);
+        }
     }
 
     public void setWindOri(String windOri) {
-        if (tvWindOri != null)
+        if (tvWindOri != null) {
             tvWindOri.setText(windOri);
+        }
     }
 
     public void setWindLevel(String windLevel) {
-        if (tvWindLevel != null)
+        if (tvWindLevel != null) {
             tvWindLevel.setText(windLevel);
+        }
     }
 
     public void setAirLevel(AirLevel airLevel) {
@@ -133,28 +141,33 @@ public class WeatherItemView extends LinearLayout {
     }
 
     public void setDayTemp(int dayTemp) {
-        if (ttvTemp != null)
+        if (ttvTemp != null) {
             ttvTemp.setTemperatureDay(dayTemp);
+        }
     }
 
     public void setNightTemp(int nightTemp) {
-        if (ttvTemp != null)
+        if (ttvTemp != null) {
             ttvTemp.setTemperatureNight(nightTemp);
+        }
     }
 
     public void setDayImg(int resId) {
-        if (ivDayWeather != null)
+        if (ivDayWeather != null) {
             ivDayWeather.setImageResource(resId);
+        }
     }
 
     public void setNightImg(int resId) {
-        if (ivNightWeather != null)
+        if (ivNightWeather != null) {
             ivNightWeather.setImageResource(resId);
+        }
     }
 
     public void setMaxTemp(int max) {
-        if (ttvTemp != null)
+        if (ttvTemp != null) {
             ttvTemp.setMaxTemp(max);
+        }
     }
 
     public void setMinTemp(int min) {

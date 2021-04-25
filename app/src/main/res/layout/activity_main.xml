@@ -11,7 +11,9 @@
         android:id="@+id/rg_type"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
 
         <RadioButton
             android:id="@+id/rb_disc"
@@ -19,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="折线图"
-            android:textSize="40px" />
+            android:textSize="16dp" />
 
         <RadioButton
             android:id="@+id/rb_curve"
@@ -27,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="曲线图"
-            android:textSize="40px" />
+            android:textSize="16dp" />
     </RadioGroup>
 
     <me.zhouzhuo.zzweatherview.ZzWeatherView

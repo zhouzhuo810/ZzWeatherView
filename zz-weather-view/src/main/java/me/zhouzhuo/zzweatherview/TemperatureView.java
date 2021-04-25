@@ -63,6 +63,8 @@ public class TemperatureView extends View {
 
     private void initPaint(Context context, AttributeSet attrs) {
 
+        textSize = PicUtil.dp2px(context, 15);
+        
         pointPaint = new Paint();
         linePaint = new Paint();
         textPaint = new Paint();
@@ -85,7 +87,13 @@ public class TemperatureView extends View {
         drawText(canvas);
 
     }
-
+    
+    public void setTextSize(int textSize) {
+        this.textSize = textSize;
+        textPaint.setTextSize(textSize);
+        invalidate();
+    }
+    
     private void drawPoint(Canvas canvas) {
         int height = getHeight() - textSize * 4;
         int x = getWidth() / 2;
@@ -110,8 +118,8 @@ public class TemperatureView extends View {
         float widDay = textPaint.measureText(dayTemp);
         float widNight = textPaint.measureText(nightTemp);
         float hei = textPaint.descent() - textPaint.ascent();
-        canvas.drawText(dayTemp, getWidth() / 2 - widDay / 2, yDay - radius - hei / 2, textPaint);
-        canvas.drawText(nightTemp, getWidth() / 2 - widNight / 2, yNight + radius + hei, textPaint);
+        canvas.drawText(dayTemp, getWidth() / 2.0f - widDay / 2, yDay - radius - hei / 2, textPaint);
+        canvas.drawText(nightTemp, getWidth() / 2.0f - widNight / 2, yNight + radius + hei, textPaint);
     }
 
     public int getRadius() {

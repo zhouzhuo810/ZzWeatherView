@@ -1,13 +1,21 @@
 package me.zhouzhuo.zzweatherview;
 
-import android.widget.ImageView;
+import android.content.Context;
 
 /**
- * Created by zz on 2016/12/28.
+ * @author zz
+ * @date 2016/12/28
  */
 
 public class PicUtil {
-
+    
+    
+    /**
+     * 根据白天天气名称解析白天天气图片
+     *
+     * @param weatherName 天气名称
+     * @return 天气图片资源
+     */
     public static int getDayWeatherPic(String weatherName) {
         switch (weatherName) {
             case "晴":
@@ -37,7 +45,13 @@ public class PicUtil {
         }
         return R.drawable.w0;
     }
-
+    
+    /**
+     * 根据夜间天气名称解析夜间天气图片
+     *
+     * @param weatherName 天气名称
+     * @return 天气图片资源
+     */
     public static int getNightWeatherPic(String weatherName) {
         switch (weatherName) {
             case "晴":
@@ -66,5 +80,16 @@ public class PicUtil {
                 return R.drawable.w15;
         }
         return R.drawable.w30;
+    }
+    
+    
+    /**
+     * convert dp to its equivalent px
+     * <p>
+     * 将dp转换为与之相等的px
+     */
+    public static int dp2px(Context context, float dipValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dipValue * scale + 0.5f);
     }
 }

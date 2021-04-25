@@ -1,12 +1,9 @@
 package me.zhouzhuo.zzweatherviewdemo;
 
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.ViewGroup;
-import android.widget.RadioButton;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -17,49 +14,51 @@ import me.zhouzhuo.zzweatherview.WeatherItemView;
 import me.zhouzhuo.zzweatherview.WeatherModel;
 import me.zhouzhuo.zzweatherview.ZzWeatherView;
 
+/**
+ * @author zhouzhuo810
+ */
 public class MainActivity extends AppCompatActivity {
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ViewUtil.scaleContentView((ViewGroup) findViewById(R.id.activity_main));
-
+        
         RadioGroup rgType = (RadioGroup) findViewById(R.id.rg_type);
         rgType.check(R.id.rb_disc);
-
+        
         final ZzWeatherView weatherView = (ZzWeatherView) findViewById(R.id.weather_view);
-
+        
         //填充天气数据
-        weatherView.setList(generateData());
-
+        weatherView.setData(generateMockData());
+        
         //画折线
         weatherView.setLineType(ZzWeatherView.LINE_TYPE_DISCOUNT);
         //画曲线(已修复不圆滑问题)
-//        weatherView.setLineType(ZzWeatherView.LINE_TYPE_CURVE);
-
-        //设置线宽
+        //        weatherView.setLineType(ZzWeatherView.LINE_TYPE_CURVE);
+        
+        //设置线宽，单位px
         weatherView.setLineWidth(6f);
-
+        
         //设置一屏幕显示几列(最少3列)
         try {
-            weatherView.setColumnNumber(5);
+            weatherView.setColumnNumber(6);
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        
         //设置白天和晚上线条的颜色
         weatherView.setDayAndNightLineColor(Color.BLUE, Color.RED);
-
+        
         //点击某一列
         weatherView.setOnWeatherItemClickListener(new ZzWeatherView.OnWeatherItemClickListener() {
             @Override
             public void onItemClick(WeatherItemView itemView, int position, WeatherModel weatherModel) {
-                Toast.makeText(MainActivity.this, position+"", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, position + "", Toast.LENGTH_SHORT).show();
             }
         });
-
-
+        
+        
         rgType.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -73,10 +72,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
+        
     }
-
-    private List<WeatherModel> generateData() {
+    
+    private List<WeatherModel> generateMockData() {
         List<WeatherModel> list = new ArrayList<WeatherModel>();
         WeatherModel model = new WeatherModel();
         model.setDate("12/07");
@@ -89,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         model.setWindLevel("3级");
         model.setAirLevel(AirLevel.EXCELLENT);
         list.add(model);
-
+        
         WeatherModel model1 = new WeatherModel();
         model1.setDate("12/08");
         model1.setWeek("今天");
@@ -101,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         model1.setWindLevel("3级");
         model1.setAirLevel(AirLevel.HIGH);
         list.add(model1);
-
+        
         WeatherModel model2 = new WeatherModel();
         model2.setDate("12/09");
         model2.setWeek("明天");
@@ -113,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
         model2.setWindLevel("3级");
         model2.setAirLevel(AirLevel.POISONOUS);
         list.add(model2);
-
+        
         WeatherModel model3 = new WeatherModel();
         model3.setDate("12/10");
         model3.setWeek("周六");
@@ -127,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
         model3.setWindLevel("3级");
         model3.setAirLevel(AirLevel.GOOD);
         list.add(model3);
-
+        
         WeatherModel model4 = new WeatherModel();
         model4.setDate("12/11");
         model4.setWeek("周日");
@@ -141,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
         model4.setWindLevel("3级");
         model4.setAirLevel(AirLevel.LIGHT);
         list.add(model4);
-
+        
         WeatherModel model5 = new WeatherModel();
         model5.setDate("12/12");
         model5.setWeek("周一");
@@ -155,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
         model5.setWindLevel("3级");
         model5.setAirLevel(AirLevel.LIGHT);
         list.add(model5);
-
+        
         WeatherModel model6 = new WeatherModel();
         model6.setDate("12/13");
         model6.setWeek("周二");
@@ -169,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
         model6.setWindLevel("3级");
         model6.setAirLevel(AirLevel.POISONOUS);
         list.add(model6);
-
+        
         WeatherModel model7 = new WeatherModel();
         model7.setDate("12/14");
         model7.setWeek("周三");
@@ -183,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
         model7.setWindLevel("3级");
         model7.setAirLevel(AirLevel.POISONOUS);
         list.add(model7);
-
+        
         WeatherModel model8 = new WeatherModel();
         model8.setDate("12/15");
         model8.setWeek("周四");
@@ -197,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
         model8.setWindLevel("3级");
         model8.setAirLevel(AirLevel.POISONOUS);
         list.add(model8);
-
+        
         return list;
     }
 }
